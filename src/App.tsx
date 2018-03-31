@@ -1,16 +1,16 @@
-import * as React from 'react';
-import './App.css';
-import { Card, Button, Intent, ButtonGroup } from '@blueprintjs/core';
-import { style } from 'typestyle';
+import { Button, ButtonGroup, Card, Intent } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import { observer } from 'mobx-react';
+import * as React from 'react';
+import { style } from 'typestyle';
+import './App.css';
 import AppState from './AppState';
 
-const card = style({width: '400px', margin: 'auto' });
+const card = style({ width: '400px', margin: 'auto' });
 
 @observer
-class App extends React.Component<{appState: AppState}, {}> {
-  render() {
+class App extends React.Component<{ appState: AppState }, {}> {
+  public render() {
     return (
       <div className="App">
         <header>
