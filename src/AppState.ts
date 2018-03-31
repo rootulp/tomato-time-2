@@ -1,8 +1,8 @@
-import { observable, action } from 'mobx';
+import { action, observable } from 'mobx';
 
 class AppState {
-    @observable timer: number = 10;
-    @observable isActive: boolean = false;
+    @observable public timer: number = 10;
+    @observable public isActive: boolean = false;
 
     constructor() {
         setInterval(() => {
