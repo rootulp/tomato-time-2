@@ -1,10 +1,13 @@
 import { action, observable } from 'mobx';
 
 class AppState {
-    @observable public timer: number = 10;
-    @observable public isActive: boolean = false;
+    @observable public timer: number;
+    @observable public isActive: boolean;
 
-    constructor() {
+    constructor(timer: number = 10, isActive: boolean = false) {
+        this.timer = timer;
+        this.isActive = isActive;
+
         setInterval(() => {
             this.tick();
         },          1000);
