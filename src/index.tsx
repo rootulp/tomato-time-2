@@ -11,4 +11,5 @@ ReactDOM.render(
   <App appState={appState} />,
   document.getElementById('root') as HTMLElement
 );
+
 registerServiceWorker();
