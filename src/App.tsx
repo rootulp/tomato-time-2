@@ -1,13 +1,15 @@
 import * as React from 'react';
 import './App.css';
 import { Card, Button, Intent } from '@blueprintjs/core';
-import { TimePicker } from '@blueprintjs/datetime';
 import { style } from 'typestyle';
 import { IconNames } from '@blueprintjs/icons';
+import { observer } from 'mobx-react';
+import AppState from './AppState';
 
 const card = style({width: '400px', margin: 'auto' });
 
-class App extends React.Component {
+@observer
+class App extends React.Component<{appState: AppState}, {}> {
   render() {
     return (
       <div className="App">
@@ -15,9 +17,9 @@ class App extends React.Component {
           <h1>Tomato Time 2 🍅</h1>
         </header>
         <Card className={card} elevation={1}>
-          <TimePicker />
-          <Button text="Start" intent={Intent.SUCCESS} icon={IconNames.PLAY} />
-          <Button text="Stop" intent={Intent.DANGER} icon={IconNames.STOP} />
+          <p>{this.props.appState.timer}</p>
+          {/* <Button text="Start" intent={Intent.SUCCESS} icon={IconNames.PLAY} /> */}
+          <Button text="Reset" intent={Intent.DANGER} icon={IconNames.STOP} onClick={this.props.appState.resetTimer}/>
         </Card>
       </div>
     );
