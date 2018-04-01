@@ -14,19 +14,19 @@ class Actions extends React.Component<{ timer: Timer }, {}> {
               text="Start"
               intent={Intent.SUCCESS}
               icon={IconNames.PLAY}
-              onClick={this.props.timer.startTimer}
+              onClick={this.props.timer.start}
             />
             <Button
               text="Pause"
               intent={Intent.WARNING}
               icon={IconNames.PAUSE}
-              onClick={this.props.timer.pauseTimer}
+              onClick={this.props.timer.pause}
             />
             <Button
               text="Reset"
               intent={Intent.DANGER}
               icon={IconNames.REFRESH}
-              onClick={this.props.timer.resetTimer}
+              onClick={this.props.timer.reset}
             />
           </ButtonGroup>
         </div>
