@@ -25,7 +25,7 @@ class App extends React.Component {
           <h1>Tomato Time 2 🍅</h1>
         </header>
         <Card className={card} elevation={1}>
-          <p>{this.timer.timer}</p>
+          <p>{this.timer.timeRemaining}</p>
           <Actions timer={this.timer} />
         </Card>
       </div>

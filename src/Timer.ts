@@ -1,11 +1,13 @@
 import { action, observable } from 'mobx';
 
 class Timer {
-    @observable public timer: number;
+    public static readonly POMODORO_LENGTH: number = 25 * 60;
+    @observable public timeRemaining: number;
     @observable public isActive: boolean;
 
-    constructor(timer: number = 10, isActive: boolean = false) {
-        this.timer = timer;
+
+    constructor(timer: number = Timer.POMODORO_LENGTH, isActive: boolean = false) {
+        this.timeRemaining = timer;
         this.isActive = isActive;
 
         setInterval(() => {
@@ -26,13 +28,16 @@ class Timer {
     @action
     public resetTimer = () => {
         this.isActive = false;
-        this.timer = 10;
+        this.timeRemaining = Timer.POMODORO_LENGTH;
     }
 
     @action
     private tick = () => {
+        if (this.isActive && this.timeRemaining === 0) {
+            this.resetTimer();
+        }
         if (this.isActive) {
-            this.timer -= 1;
+            this.timeRemaining -= 1;
         }
     }
 }
