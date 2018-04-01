@@ -16,17 +16,17 @@ class Timer {
     }
 
     @action
-    public startTimer = () => {
+    public start = () => {
         this.isActive = true;
     }
 
     @action
-    public pauseTimer = () => {
+    public pause = () => {
         this.isActive = false;
     }
 
     @action
-    public resetTimer = () => {
+    public reset = () => {
         this.isActive = false;
         this.timeRemaining = Timer.POMODORO_LENGTH;
     }
@@ -34,7 +34,7 @@ class Timer {
     @action
     private tick = () => {
         if (this.isActive && this.timeRemaining === 0) {
-            this.resetTimer();
+            this.reset();
         }
         if (this.isActive) {
             this.timeRemaining -= 1;
