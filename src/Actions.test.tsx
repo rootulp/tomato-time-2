@@ -3,20 +3,18 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Actions from './Actions';
-import AppState from './AppState';
-
-jest.mock('./AppState');
+import Timer from './Timer';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const appState: AppState = new AppState();
-  ReactDOM.render(<Actions appState={appState}/>, div);
+  const timer: Timer = new Timer();
+  ReactDOM.render(<Actions timer={timer}/>, div);
 });
 
 it('renders 3 buttons', () => {
-  // AppState should really be a mock here
-  const appState: AppState = new AppState(0, false);
-  const actions = shallow(<Actions appState={appState}/>);
+  // Timer should really be a mock here
+  const timer: Timer = new Timer(0, false);
+  const actions = shallow(<Actions timer={timer}/>);
 
   expect(actions.find(Button)).toHaveLength(3);
 });

@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx';
 
-class AppState {
+class Timer {
     @observable public timer: number;
     @observable public isActive: boolean;
 
@@ -37,4 +37,4 @@ class AppState {
     }
 }
 
-export default AppState;
+export default Timer;

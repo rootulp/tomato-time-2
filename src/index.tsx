@@ -1,14 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-import AppState from './AppState';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-const appState: AppState = new AppState();
 
 ReactDOM.render(
-  <App appState={appState} />,
+  <App />,
   document.getElementById('root') as HTMLElement
 );
 
